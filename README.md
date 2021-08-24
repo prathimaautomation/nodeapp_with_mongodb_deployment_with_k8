@@ -23,7 +23,19 @@
 * A ConfigMap is an API object that lets you store configuration for other objects to use. Unlike most Kubernetes objects that have a spec , a ConfigMap has data and binaryData fields. These fields accept key-value pairs as their values. ... The keys stored in data must not overlap with the keys in the binaryData field.
 
 ## Step by step documentation for the deployment nodeapp along with mongodb with K8
-* create a 
+* create mongo-deployment.yml and mongo-service.yml files to setup database.
+* create node-deployment.yml and node-service.yml files to deploy node app.
+* run the below commands to deploy node app along with database using k8s
+  ```python
+  kubectl create -f mongo-deployment.yml
+  kubectl create -f mongo-service.yml
+  kubectl create -f node-deployment.yml
+  kubectl create -f node-service.yml
+  # can check the numbers of pods running using below command
+  kubectl get pods
+  # to check the service running
+  kubectl get svc
+  ```
 
 ## Definition of K8 resources:
 * A resource is an endpoint in the Kubernetes API that stores a collection of API objects of a certain kind; for example, the built-in pods resource contains a collection of Pod objects.
